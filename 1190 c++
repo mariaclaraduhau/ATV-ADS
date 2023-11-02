@@ -1,0 +1,42 @@
+#include <stdio.h>
+#define MAX 12
+
+int main(){
+    char O;
+    double soma = 0, media = 0, mat[MAX][MAX];
+
+    scanf("%c", &O);
+
+    for(int i = 0; i < MAX; i++){
+        for(int j = 0; j < MAX; j++){
+            scanf("%lf", &mat[i][j]);
+        }
+    }
+
+    int aux = 11;
+    for(int i = 1; i <= 5; i++){
+        for(int j = 11; j >= aux; j--){
+            soma += mat[i][j];
+        }
+    aux--;
+    }
+
+    aux = 7;
+    for(int i = 6; i <= 10; i++){
+        for(int j = aux; j <= 11; j++){
+            soma+= mat[i][j];
+        }
+    aux++;
+    }
+
+    media = soma/30.0;
+
+    if(O =='S'){
+        printf("%.1lf\n",soma);
+    }
+    else if(O =='M'){
+        printf("%.1lf\n",media);
+    }
+
+    return 0;
+}
